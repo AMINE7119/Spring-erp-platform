@@ -1,19 +1,20 @@
 package com.***REMOVED***.spring_erp_platform;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
-// Cette ligne dit à Spring : "Démarre pour le test, mais ne cherche pas de base de données"
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, FlywayAutoConfiguration.class})
+@ActiveProfiles("test") // Indique à Spring d'utiliser src/test/resources/application-test.yml
 class SpringErpPlatformApplicationTests {
 
 	@Test
 	void contextLoads() {
-		// Ce test vérifie simplement que l'application peut démarrer sans erreur de syntaxe
+		/* * Ce test vérifie maintenant que :
+		 * 1. Le contexte Spring démarre sans erreur.
+		 * 2. La base de données H2 (en mémoire) est bien configurée.
+		 * 3. Toutes tes Beans de sécurité (JWT, AuthProvider) sont correctement injectées.
+		 */
 	}
 
 }
