@@ -1,0 +1,15 @@
+services:
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: erp-postgres-new
+    ports:
+      - "5433:5432" # On mappe le port 5433 (externe) vers 5432 (interne)
+    environment:
+      POSTGRES_USER: ***REMOVED***
+      POSTGRES_PASSWORD: ***REMOVED***
+      POSTGRES_DB: erp_db
+    volumes:
+      - postgres_new_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_new_data:
