@@ -1,5 +1,6 @@
 package com.***REMOVED***.spring_erp_platform.auth.controller;
 
+import com.***REMOVED***.spring_erp_platform.auth.dto.AuthenticationRequest;
 import com.***REMOVED***.spring_erp_platform.auth.dto.AuthenticationResponse;
 import com.***REMOVED***.spring_erp_platform.auth.dto.RegisterRequest;
 import com.***REMOVED***.spring_erp_platform.auth.service.AuthenticationService;
@@ -18,7 +19,16 @@ public class AuthenticationController {
     private final AuthenticationService service;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
+    public ResponseEntity<AuthenticationResponse> register(
+            @RequestBody RegisterRequest request
+    ) {
         return ResponseEntity.ok(service.register(request));
+    }
+
+    @PostMapping("/authenticate")
+    public ResponseEntity<AuthenticationResponse> authenticate(
+            @RequestBody AuthenticationRequest request
+    ) {
+        return ResponseEntity.ok(service.authenticate(request));
     }
 }
