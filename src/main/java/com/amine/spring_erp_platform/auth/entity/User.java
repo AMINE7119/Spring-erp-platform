@@ -30,7 +30,8 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + role.name()));
+        // CORRECTION ICI : On renvoie exactement "ADMIN" ou "USER" sans préfixe
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
     @Override

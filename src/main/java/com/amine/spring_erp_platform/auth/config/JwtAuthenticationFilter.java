@@ -35,30 +35,25 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final String jwt;
         final String userEmail;
 
-        // 1. Si pas de header ou ne commence pas par Bearer, on passe au filtre suivant
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
 
-        // 2. Extraire le token (on enlève "Bearer ")
         jwt = authHeader.substring(7);
         userEmail = jwtService.extractUsername(jwt);
 
-        // 3. Si l'email est présent et l'utilisateur n'est pas encore authentifié dans le contexte
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
 
-            // 4. Si le token est valide, on crée l'objet d'authentification
             if (jwtService.isTokenValid(jwt, userDetails)) {
+                // Les rôles (Authorities) sont injectés ici dans le contexte de sécurité
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,
                         userDetails.getAuthorities()
                 );
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-
-                // 5. On met à jour le contexte de sécurité
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             }
         }
