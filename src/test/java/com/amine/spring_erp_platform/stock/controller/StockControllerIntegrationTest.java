@@ -8,6 +8,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
@@ -18,6 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest // 💡 Démarre tout le contexte Spring Boot (Base de données H2, Services, etc.)
 @AutoConfigureMockMvc // 💡 Configure l'outil qui va simuler nos requêtes HTTP (Postman en code)
+@ActiveProfiles("test") // 💡 Ajoute cette ligne pour utiliser application-test.yml
 class StockControllerIntegrationTest {
 
     @Autowired
