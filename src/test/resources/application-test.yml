@@ -1,17 +1,40 @@
 spring:
+  # 1. Utilisation de H2 en mode compatibilité PostgreSQL
   datasource:
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
     driver-class-name: org.h2.Driver
     username: sa
     password:
+
+  # 2. Configuration JPA stricte pour les tests
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
+      # Crée le schéma à partir des entités et le détruit après le test
       ddl-auto: create-drop
-  flyway:
-    enabled: false # On désactive Flyway pour ne pas avoir de conflits de scripts en test
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        # Désactive la recherche de métadonnées JDBC Postgres pour éviter les erreurs de connexion
+        temp:
+          use_jdbc_metadata_defaults: false
 
+  # 3. Désactivation de Flyway en test pour gagner en rapidité
+  # Les tables sont créées via hibernate.ddl-auto: create-drop
+  flyway:
+    enabled: false
+
+# 4. Configuration JWT spécifique à l'environnement de test
 app:
   jwt:
+    # Secret statique pour les tests (différent de la prod)
     secret: ***REMOVED***
     expiration: 86400000
+
+# 5. Désactivation des logs trop verbeux pour garder une console CI/CD propre
+logging:
+  level:
+    root: INFO
+    com.***REMOVED***.spring_erp_platform: DEBUG
+    org.hibernate.SQL: DEBUG
