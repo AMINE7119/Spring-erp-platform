@@ -1,15 +1,27 @@
+version: '3.8'
 services:
-  postgres-db:
-    image: postgres:16-alpine
-    container_name: erp-postgres-new
-    ports:
-      - "5433:5432" # On mappe le port 5433 (externe) vers 5432 (interne)
+  # La base de données
+  db:
+    image: postgres:15-alpine
+    container_name: erp-db
     environment:
-      POSTGRES_USER: amine_admin
-      POSTGRES_PASSWORD: admin123
-      POSTGRES_DB: erp_db
-    volumes:
-      - postgres_new_data:/var/lib/postgresql/data
+      POSTGRES_USER: amine
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: erp_platform
+    ports:
+      - "5432:5432"
 
-volumes:
-  postgres_new_data:
+  # Ton application Spring Boot
+  app:
+    build: .
+    container_name: erp-app
+    ports:
+      - "8080:8080"
+    environment:
+      # 💡 Important : l'URL pointe vers "db" (le nom du service docker)
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/erp_platform
+      SPRING_DATASOURCE_USERNAME: amine
+      SPRING_DATASOURCE_PASSWORD: password123
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - db
