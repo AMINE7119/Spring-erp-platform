@@ -1,96 +1,128 @@
-Spring ERP Platform: Cloud-Native Micro-Architecture
-====================================================
+# Spring ERP Platform
+### Cloud-Native Modular Backend
 
-A robust Enterprise Resource Planning (ERP) backend developed with **Spring Boot 3**, designed for scalability, data integrity, and automated deployment. This project serves as a technical demonstration of modern software engineering practices, moving from a monolithic core to a containerized, production-ready environment.
+A production-ready **Enterprise Resource Planning (ERP)** engine built with **Spring Boot 3.2.5**, designed to handle complex business logic through robust architectural patterns and a cloud-native deployment strategy.
 
-### Core Technical Pillars
+This project demonstrates the transition from a monolithic core to a containerized, highly maintainable system suitable for modern enterprise requirements.
 
-#### 1\. Software Architecture & Design Patterns
+---
 
-The system is built upon a modular monolith architecture with strict separation of concerns, ensuring high maintainability:
+## Architecture & Engineering Patterns
 
-*   **Strategy & Factory Patterns**: Implemented in the TaxCalculation module to allow dynamic tax rule switching (B2B, B2C, International) without modifying core service logic.
+Industry-standard design patterns are implemented throughout to solve common enterprise challenges and ensure code quality.
 
-*   **Domain-Driven Design (DDD) Principles**: Organized by bounded contexts (Customer, Invoice, Stock) to minimize coupling.
+| Pattern | Module | Description |
+|---|---|---|
+| **Strategy + Factory** | `TaxCalculation` | Runtime resolution of tax logic (B2B, B2C, International) — strictly adheres to the Open/Closed Principle |
+| **Domain-Driven Design (DDD)** | Global | Logic partitioned into isolated bounded contexts: `Customer`, `Invoice`, `Stock` |
+| **AOP Error Handling** | Global | `@RestControllerAdvice` transforms internal failures into standardized JSON error schemas |
 
-*   **Validation & Global Exception Handling**: Centralized error management to ensure 100% consistent API responses and data integrity.
+---
 
+## Enterprise Security Framework
 
-#### 2\. Security Framework
+Security is implemented as a fundamental middleware layer, not an afterthought.
 
-Secured via **Spring Security 6** and **Stateless JWT Authentication**:
+- **Stateless Authentication** — Full JWT (JSON Web Token) implementation for session management
+- **Granular RBAC** — Strict method-level security and URL filtering for `ADMIN`, `MANAGER`, and `USER` roles via Spring Security 6
+- **Request Validation** — Deep JSR-303 Bean Validation integration to enforce data integrity before reaching the persistence layer
 
-*   **Role-Based Access Control (RBAC)**: Differentiated permissions for ADMIN, MANAGER, and USER.
+---
 
-*   **Stateless Security**: All sessions are managed via signed tokens, enabling horizontal scaling and microservice readiness.
+## Reliability & CI/CD Integration
 
+Platform stability is guaranteed through a multi-layered testing and automation strategy.
 
-#### 3\. Reliability & Testing (TDD Approach)
+- **TDD** — Business logic validated with JUnit 5 and Mockito for full unit isolation
+- **Integration Testing** — API endpoints verified via MockMvc against an H2 in-memory database on a dedicated test profile
+- **Automated Pipeline** — GitHub Actions automate build, test, and reporting on every push; only verified code is merged into `develop`
 
-The project maintains high reliability through a comprehensive testing suite:
+---
 
-*   **Unit Testing**: Isolated logic validation using **JUnit 5** and **Mockito**.
+## DevOps & Containerization Strategy
 
-*   **Integration Testing**: Full-context API validation using **MockMvc** and **H2** in-memory database for rapid CI/CD cycles.
+A **Multi-Stage Docker Architecture** optimizes both build reproducibility and runtime efficiency.
 
-*   **CI/CD Pipeline**: Integrated with **GitHub Actions** for automated build verification and test execution on every push.
+```
+┌─────────────────────────────────────────────┐
+│             Build Stage                      │
+│  Maven 3.9 — Compiles & packages the JAR    │
+│  Reproducible build, independent of host    │
+└───────────────────┬─────────────────────────┘
+                    │
+                    ▼
+┌─────────────────────────────────────────────┐
+│             Runtime Stage                    │
+│  Eclipse Temurin JRE Alpine                 │
+│  ~70% smaller image · Minimal attack surface│
+└─────────────────────────────────────────────┘
+```
 
+**Docker Compose** manages the full application lifecycle: service startup, internal networking, and PostgreSQL 15 dependency configuration.
 
-#### 4\. DevOps & Containerization
+---
 
-Designed for the "it works everywhere" philosophy:
+## Technical Stack
 
-*   **Multi-Stage Docker Build**: Optimized images (Eclipse Temurin JRE Alpine) for minimal footprint and maximum security.
+| Layer | Technology |
+|---|---|
+| **Language** | Java 17 |
+| **Framework** | Spring Boot 3.2.5, Spring Data JPA, Spring Security 6 |
+| **Database** | PostgreSQL 15 (Production) · H2 (CI/CD & Integration Tests) |
+| **Infrastructure** | Docker · Docker Compose · GitHub Actions |
 
-*   **Docker Compose Orchestration**: One-command deployment involving the Spring Boot application and a **PostgreSQL 15** persistence layer.
+---
 
+## Engineering Decisions & Problem Solving
 
-### Technology Stack
+| Challenge | Engineering Solution | Business Impact |
+|---|---|---|
+| Complex Tax Logic | Strategy Pattern with Factory resolution | New tax regions added without modifying stable existing code |
+| API Inconsistency | Global `@RestControllerAdvice` with standard Error DTOs | Simplified frontend integration and improved debugging efficiency |
+| Environmental Drift | Multi-Stage Dockerfiles for build and runtime | Eliminated "works on my machine" bugs · Optimized cloud resource usage |
+| Stock Consistency | Atomic service transactions + database constraints | Zero-error stock tracking guaranteed during high-concurrency operations |
 
-*   **Language**: Java 17
+---
 
-*   **Framework**: Spring Boot 3.2.5
+## Getting Started
 
-*   **Persistence**: Spring Data JPA / Hibernate
+### Prerequisites
 
-*   **Database**: PostgreSQL (Production) / H2 (Testing)
+- [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/) installed and running
 
-*   **Security**: Spring Security & JWT
+### Deployment
 
-*   **DevOps**: Docker, Docker Compose, GitHub Actions
+**1. Clone the repository**
+```bash
+git clone https://github.com/AMINE7119/Spring-erp-platform.git
+cd Spring-erp-platform
+```
 
+**2. Launch via Docker Compose**
+```bash
+docker-compose up --build
+```
 
-### Engineering Decisions & Problem Solving
+**3. Access the API**
 
-**ChallengeSolutionImpactCode Smells in Tax Logic**Replaced conditional blocks with **Strategy Pattern**.Added support for new tax regions in minutes without touching stable code.**Inconsistent API Errors**Implemented a global @RestControllerAdvice.Standardized JSON error objects across the entire platform for easier frontend integration.**Environmental Drift**Implemented **Multi-Stage Dockerfile**.Reduced final image size by 70% and eliminated environment-specific runtime bugs.**Race Conditions in Stock**Enforced database-level constraints and atomic service updates.Guaranteed accurate stock levels during concurrent transactions.
+The server will be reachable at `http://localhost:8080`
 
-### Getting Started
+```
+POST /api/v1/auth/register      → Create an account
+POST /api/v1/auth/authenticate  → Obtain a JWT token
+```
 
-#### Prerequisites
+---
 
-*   Docker & Docker Compose
+## Roadmap
 
+- [ ] Migration to a **Microservices** architecture using Spring Cloud Gateway
+- [ ] **Event-Driven** architecture for asynchronous synchronization between `Invoice` and `Stock` modules
+- [ ] Integration of **Prometheus & Grafana** for real-time system monitoring and observability
 
-#### Deployment
+---
 
-1.  Bashgit clone https://github.com/AMINE7119/Spring-erp-platform.git
+## Author
 
-2.  Bashdocker-compose up --build
-
-
-The application will be available at http://localhost:8080.
-
-### Future Roadmap
-
-*   Migration to Microservices using Spring Cloud Gateway.
-
-*   Implementation of an Event-Driven architecture for asynchronous invoice-to-stock synchronization.
-
-*   Frontend integration using React/TypeScript.
-
-
-### Amine YANI
-
-*   **Status**: Software Engineering Student (M1/M2)
-
-*   **Focus**: Backend Engineering, DevOps, Cloud Architecture
+**Amine YANI** — Software Engineering Student( M1/M2 ) 
+*Focus: Cloud-Native Backend Development & DevOps Automation*
