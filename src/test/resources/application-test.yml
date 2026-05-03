@@ -29,7 +29,7 @@ spring:
 app:
   jwt:
     # Secret statique pour les tests (différent de la prod)
-    secret: ***REMOVED***
+    secret: "test-secret-key-for-testing-purposes-only-256-bits-minimum-length-needed-for-hs256-algorithm-encryption-key"
     expiration: 86400000
 
 # 5. Désactivation des logs trop verbeux pour garder une console CI/CD propre
