@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform.customer.entity;
+package com.amine.spring_erp_platform.customer.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

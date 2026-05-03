@@ -1,10 +1,10 @@
-package com.***REMOVED***.spring_erp_platform.stock.service;
+package com.amine.spring_erp_platform.stock.service;
 
-import com.***REMOVED***.spring_erp_platform.stock.entity.MovementType;
-import com.***REMOVED***.spring_erp_platform.stock.entity.Product;
-import com.***REMOVED***.spring_erp_platform.stock.entity.StockMovement;
-import com.***REMOVED***.spring_erp_platform.stock.repository.ProductRepository;
-import com.***REMOVED***.spring_erp_platform.stock.repository.StockMovementRepository;
+import com.amine.spring_erp_platform.stock.entity.MovementType;
+import com.amine.spring_erp_platform.stock.entity.Product;
+import com.amine.spring_erp_platform.stock.entity.StockMovement;
+import com.amine.spring_erp_platform.stock.repository.ProductRepository;
+import com.amine.spring_erp_platform.stock.repository.StockMovementRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

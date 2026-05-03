@@ -1,9 +1,9 @@
-package com.***REMOVED***.spring_erp_platform.stock.controller;
+package com.amine.spring_erp_platform.stock.controller;
 
-import com.***REMOVED***.spring_erp_platform.stock.dto.*;
-import com.***REMOVED***.spring_erp_platform.stock.entity.Product;
-import com.***REMOVED***.spring_erp_platform.stock.entity.StockMovement;
-import com.***REMOVED***.spring_erp_platform.stock.service.StockService;
+import com.amine.spring_erp_platform.stock.dto.*;
+import com.amine.spring_erp_platform.stock.entity.Product;
+import com.amine.spring_erp_platform.stock.entity.StockMovement;
+import com.amine.spring_erp_platform.stock.service.StockService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

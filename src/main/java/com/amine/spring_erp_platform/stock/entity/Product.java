@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform.stock.entity;
+package com.amine.spring_erp_platform.stock.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

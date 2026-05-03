@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform.stock.entity;
+package com.amine.spring_erp_platform.stock.entity;
 
 public enum MovementType {
     IN,  // Entrée de stock (ex: livraison fournisseur)

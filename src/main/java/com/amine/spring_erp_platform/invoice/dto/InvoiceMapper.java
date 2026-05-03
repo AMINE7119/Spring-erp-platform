@@ -1,6 +1,6 @@
-package com.***REMOVED***.spring_erp_platform.invoice.dto;
+package com.amine.spring_erp_platform.invoice.dto;
 
-import com.***REMOVED***.spring_erp_platform.invoice.entity.Invoice;
+import com.amine.spring_erp_platform.invoice.entity.Invoice;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

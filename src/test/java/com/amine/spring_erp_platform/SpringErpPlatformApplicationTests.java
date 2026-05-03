@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform;
+package com.amine.spring_erp_platform;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform.invoice.entity;
+package com.amine.spring_erp_platform.invoice.entity;
 
 public enum InvoiceStatus {
     DRAFT,      // Brouillon

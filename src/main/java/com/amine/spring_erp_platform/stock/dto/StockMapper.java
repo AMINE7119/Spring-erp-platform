@@ -1,7 +1,7 @@
-package com.***REMOVED***.spring_erp_platform.stock.dto;
+package com.amine.spring_erp_platform.stock.dto;
 
-import com.***REMOVED***.spring_erp_platform.stock.entity.Product;
-import com.***REMOVED***.spring_erp_platform.stock.entity.StockMovement;
+import com.amine.spring_erp_platform.stock.entity.Product;
+import com.amine.spring_erp_platform.stock.entity.StockMovement;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

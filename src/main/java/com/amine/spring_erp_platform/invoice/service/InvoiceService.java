@@ -1,12 +1,12 @@
-package com.***REMOVED***.spring_erp_platform.invoice.service;
+package com.amine.spring_erp_platform.invoice.service;
 
-import com.***REMOVED***.spring_erp_platform.customer.entity.Customer;
-import com.***REMOVED***.spring_erp_platform.customer.service.CustomerService;
-import com.***REMOVED***.spring_erp_platform.invoice.entity.Invoice;
-import com.***REMOVED***.spring_erp_platform.invoice.entity.InvoiceStatus;
-import com.***REMOVED***.spring_erp_platform.invoice.repository.InvoiceRepository;
-import com.***REMOVED***.spring_erp_platform.invoice.strategy.TaxStrategy;
-import com.***REMOVED***.spring_erp_platform.invoice.strategy.TaxStrategyFactory;
+import com.amine.spring_erp_platform.customer.entity.Customer;
+import com.amine.spring_erp_platform.customer.service.CustomerService;
+import com.amine.spring_erp_platform.invoice.entity.Invoice;
+import com.amine.spring_erp_platform.invoice.entity.InvoiceStatus;
+import com.amine.spring_erp_platform.invoice.repository.InvoiceRepository;
+import com.amine.spring_erp_platform.invoice.strategy.TaxStrategy;
+import com.amine.spring_erp_platform.invoice.strategy.TaxStrategyFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

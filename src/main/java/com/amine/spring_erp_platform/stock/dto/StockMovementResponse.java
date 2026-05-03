@@ -1,6 +1,6 @@
-package com.***REMOVED***.spring_erp_platform.stock.dto;
+package com.amine.spring_erp_platform.stock.dto;
 
-import com.***REMOVED***.spring_erp_platform.stock.entity.MovementType;
+import com.amine.spring_erp_platform.stock.entity.MovementType;
 import lombok.Data;
 import java.time.LocalDateTime;
 

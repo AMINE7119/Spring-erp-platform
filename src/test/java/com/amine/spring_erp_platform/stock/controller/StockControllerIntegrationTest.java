@@ -1,6 +1,6 @@
-package com.***REMOVED***.spring_erp_platform.stock.controller;
+package com.amine.spring_erp_platform.stock.controller;
 
-import com.***REMOVED***.spring_erp_platform.stock.dto.ProductRequest;
+import com.amine.spring_erp_platform.stock.dto.ProductRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

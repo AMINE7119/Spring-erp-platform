@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform;
+package com.amine.spring_erp_platform;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
