@@ -1,6 +1,6 @@
-package com.***REMOVED***.spring_erp_platform.auth.config;
+package com.amine.spring_erp_platform.auth.config;
 
-import com.***REMOVED***.spring_erp_platform.auth.repository.UserRepository;
+import com.amine.spring_erp_platform.auth.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

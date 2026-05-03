@@ -1,9 +1,9 @@
-package com.***REMOVED***.spring_erp_platform.auth.controller;
+package com.amine.spring_erp_platform.auth.controller;
 
-import com.***REMOVED***.spring_erp_platform.auth.dto.AuthenticationRequest;
-import com.***REMOVED***.spring_erp_platform.auth.dto.AuthenticationResponse;
-import com.***REMOVED***.spring_erp_platform.auth.dto.RegisterRequest;
-import com.***REMOVED***.spring_erp_platform.auth.service.AuthenticationService;
+import com.amine.spring_erp_platform.auth.dto.AuthenticationRequest;
+import com.amine.spring_erp_platform.auth.dto.AuthenticationResponse;
+import com.amine.spring_erp_platform.auth.dto.RegisterRequest;
+import com.amine.spring_erp_platform.auth.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

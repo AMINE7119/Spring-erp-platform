@@ -1,7 +1,7 @@
-package com.***REMOVED***.spring_erp_platform.customer.controller;
+package com.amine.spring_erp_platform.customer.controller;
 
-import com.***REMOVED***.spring_erp_platform.customer.entity.Customer;
-import com.***REMOVED***.spring_erp_platform.customer.service.CustomerService;
+import com.amine.spring_erp_platform.customer.entity.Customer;
+import com.amine.spring_erp_platform.customer.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

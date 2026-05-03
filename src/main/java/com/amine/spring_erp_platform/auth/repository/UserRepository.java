@@ -1,6 +1,6 @@
-package com.***REMOVED***.spring_erp_platform.auth.repository;
+package com.amine.spring_erp_platform.auth.repository;
 
-import com.***REMOVED***.spring_erp_platform.auth.entity.User;
+import com.amine.spring_erp_platform.auth.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

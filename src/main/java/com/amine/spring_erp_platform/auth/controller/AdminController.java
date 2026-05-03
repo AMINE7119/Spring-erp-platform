@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform.auth.controller;
+package com.amine.spring_erp_platform.auth.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
-package com.***REMOVED***.spring_erp_platform.invoice.dto;
+package com.amine.spring_erp_platform.invoice.dto;
 
-import com.***REMOVED***.spring_erp_platform.invoice.entity.InvoiceStatus;
+import com.amine.spring_erp_platform.invoice.entity.InvoiceStatus;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDate;

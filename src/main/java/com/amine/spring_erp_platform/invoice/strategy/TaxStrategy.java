@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform.invoice.strategy;
+package com.amine.spring_erp_platform.invoice.strategy;
 
 import java.math.BigDecimal;
 

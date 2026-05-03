@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform.stock.dto;
+package com.amine.spring_erp_platform.stock.dto;
 
 import lombok.Data;
 import java.math.BigDecimal;

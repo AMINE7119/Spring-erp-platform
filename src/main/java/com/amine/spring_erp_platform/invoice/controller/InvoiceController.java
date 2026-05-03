@@ -1,11 +1,11 @@
-package com.***REMOVED***.spring_erp_platform.invoice.controller;
+package com.amine.spring_erp_platform.invoice.controller;
 
-import com.***REMOVED***.spring_erp_platform.invoice.dto.InvoiceMapper;
-import com.***REMOVED***.spring_erp_platform.invoice.dto.InvoiceRequest;
-import com.***REMOVED***.spring_erp_platform.invoice.dto.InvoiceResponse;
-import com.***REMOVED***.spring_erp_platform.invoice.entity.Invoice;
-import com.***REMOVED***.spring_erp_platform.invoice.entity.InvoiceStatus;
-import com.***REMOVED***.spring_erp_platform.invoice.service.InvoiceService;
+import com.amine.spring_erp_platform.invoice.dto.InvoiceMapper;
+import com.amine.spring_erp_platform.invoice.dto.InvoiceRequest;
+import com.amine.spring_erp_platform.invoice.dto.InvoiceResponse;
+import com.amine.spring_erp_platform.invoice.entity.Invoice;
+import com.amine.spring_erp_platform.invoice.entity.InvoiceStatus;
+import com.amine.spring_erp_platform.invoice.service.InvoiceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

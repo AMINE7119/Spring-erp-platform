@@ -1,6 +1,6 @@
-package com.***REMOVED***.spring_erp_platform.invoice.entity;
+package com.amine.spring_erp_platform.invoice.entity;
 
-import com.***REMOVED***.spring_erp_platform.customer.entity.Customer;
+import com.amine.spring_erp_platform.customer.entity.Customer;
 import jakarta.persistence.*;
 import lombok.*;
 

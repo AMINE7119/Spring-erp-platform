@@ -1,6 +1,6 @@
-package com.***REMOVED***.spring_erp_platform.stock.repository;
+package com.amine.spring_erp_platform.stock.repository;
 
-import com.***REMOVED***.spring_erp_platform.stock.entity.StockMovement;
+import com.amine.spring_erp_platform.stock.entity.StockMovement;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

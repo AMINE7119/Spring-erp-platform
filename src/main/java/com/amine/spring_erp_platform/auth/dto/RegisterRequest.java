@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform.auth.dto;
+package com.amine.spring_erp_platform.auth.dto;
 
 public record RegisterRequest(
         String firstName,

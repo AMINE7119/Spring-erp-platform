@@ -1,4 +1,4 @@
-package com.***REMOVED***.spring_erp_platform.auth.service;
+package com.amine.spring_erp_platform.auth.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

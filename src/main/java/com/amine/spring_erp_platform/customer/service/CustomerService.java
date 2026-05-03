@@ -1,7 +1,7 @@
-package com.***REMOVED***.spring_erp_platform.customer.service;
+package com.amine.spring_erp_platform.customer.service;
 
-import com.***REMOVED***.spring_erp_platform.customer.entity.Customer;
-import com.***REMOVED***.spring_erp_platform.customer.repository.CustomerRepository;
+import com.amine.spring_erp_platform.customer.entity.Customer;
+import com.amine.spring_erp_platform.customer.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

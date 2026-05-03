@@ -1,6 +1,6 @@
-package com.***REMOVED***.spring_erp_platform.auth.config;
+package com.amine.spring_erp_platform.auth.config;
 
-import com.***REMOVED***.spring_erp_platform.auth.service.JwtService;
+import com.amine.spring_erp_platform.auth.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
